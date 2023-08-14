@@ -1,6 +1,3 @@
-server:
-  port: 8080
-
 application:
   server:
     url: http://localhost:8080
@@ -18,12 +15,15 @@ spring:
     username: keycloak
     password: keycloak
   jpa:
-#    show-sql: true
+   show-sql: false
     hibernate:
       ddl-auto: none
-#    properties:
-#      hibernate:
-#        generate_statistics: true
+    properties:
+      hibernate:
+        generate_statistics: false
+        jdbc:
+          batch_size: 100
+        order_inserts: true
   rabbitmq:
     host: 127.0.0.1
     port: 5672
